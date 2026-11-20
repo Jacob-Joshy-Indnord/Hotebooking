@@ -1,0 +1,22 @@
+/*
+ * File: web/src/app/globals.css
+ *
+ * Global stylesheet for the RoomBook web UI, imported once by
+ * src/app/layout.tsx. It loads Tailwind CSS v4 (compiled by the
+ * @tailwindcss/postcss plugin in postcss.config.mjs), so components style
+ * themselves with utility classes and need no per-component CSS files. It
+ * sets a readable base: slate text on a light background with the system
+ * font stack. It also keeps the browser's default focus ring for any element
+ * without its own focus-visible styles, so keyboard users can always see
+ * where focus is. There are no functions, classes or custom properties here
+ * beyond these base rules.
+ */
+@import "tailwindcss";
+
+html {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-slate-50 font-sans text-slate-900 antialiased;
+}

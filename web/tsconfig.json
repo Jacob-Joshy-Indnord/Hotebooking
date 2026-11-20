@@ -1,0 +1,33 @@
+// File: web/tsconfig.json (TypeScript reads this as JSON with comments)
+//
+// TypeScript compiler settings for the RoomBook Next.js frontend. Strict
+// mode is on, so the typed API client in src/lib/api.ts catches mismatches
+// with the FastAPI response shapes at compile time. Output is never emitted:
+// Next.js (SWC) and Vitest (Vite) compile the code, and `npm run typecheck`
+// only checks types. The "@/*" path alias maps to src/ and matches the alias
+// in vitest.config.mts. The vitest/globals and jest-dom types let test files
+// use describe/it/expect and DOM matchers without imports. The "next" plugin
+// adds App Router type checks in editors. There are no functions here; it is
+// pure configuration.
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["dom", "dom.iterable", "es2022"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "types": ["vitest/globals", "@testing-library/jest-dom"],
+    "plugins": [{ "name": "next" }],
+    "paths": { "@/*": ["./src/*"] }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}
