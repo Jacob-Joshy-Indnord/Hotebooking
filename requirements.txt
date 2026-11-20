@@ -1,0 +1,5 @@
+fastapi
+sqlalchemy>=2
+uvicorn
+pytest
+httpx
